@@ -19,3 +19,6 @@ dist
 *.njsproj
 *.sln
 *.sw?
+
+# 忽略自动导入默认生成文件
+src/typings/auto-imports.d.ts
