@@ -171,15 +171,16 @@ module.exports = {
     //   }
     // ],
     // 定义过的变量必须使用
-    'no-unused-vars': [
-      'error',
-      {
-        vars: 'all',
-        args: 'none',
-        caughtErrors: 'none',
-        ignoreRestSiblings: true
-      }
-    ],
+    'no-unused-vars': 'off',
+    // [
+    //   'error',
+    //   {
+    //     vars: 'all',
+    //     args: 'none',
+    //     caughtErrors: 'none',
+    //     ignoreRestSiblings: true
+    //   }
+    // ],
 
     //
     //
@@ -429,6 +430,22 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     'no-throw-literal': 'off',
     'prefer-promise-reject-errors': 'off',
-    'no-async-promise-executor': 'off'
+    'no-async-promise-executor': 'off',
+
+    /**
+     * ts 规则
+     */
+    // 关闭对any的警告
+    '@typescript-eslint/no-explicit-any': ['off'],
+    // 定义过的变量必须使用
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'none',
+        caughtErrors: 'none',
+        ignoreRestSiblings: true
+      }
+    ]
   }
 };
