@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { PAGE, PAGE_COMMON, PAGE_USER } from '@/constant/PAGE';
+
 const title = ref('Hello');
 
 const urls = {
-  webview: '/pagesCommon/webview/index',
-  detail: '/pagesCommon/detail/index',
-  login: '/pagesUser/login/index',
-  register: '/pagesUser/register/index'
+  webview: PAGE.WEBVIEW,
+  detail: PAGE_COMMON.DETAIL,
+  login: PAGE_USER.LOGIN,
+  register: PAGE.REGISTER
 };
 
 function jump(type: keyof typeof urls) {
