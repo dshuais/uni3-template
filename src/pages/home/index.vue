@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PAGE, PAGE_COMMON, PAGE_USER } from '@/constant/PAGE';
+import { PAGE, PAGE_COMMON, PAGE_MAIN, PAGE_USER } from '@/constant/PAGE';
 
 const title = ref('Hello');
 
@@ -7,10 +7,17 @@ const urls = {
   webview: PAGE.WEBVIEW,
   detail: PAGE_COMMON.DETAIL,
   login: PAGE_USER.LOGIN,
-  register: PAGE.REGISTER
+  register: PAGE.REGISTER,
+  personal: PAGE_MAIN.PERSONAL
 };
 
 function jump(type: keyof typeof urls) {
+  if(type === 'personal') {
+    uni.switchTab({
+      url: urls[type]
+    });
+    return;
+  }
   uni.navigateTo({
     url: urls[type]
   });
@@ -27,6 +34,7 @@ function jump(type: keyof typeof urls) {
     <button @click="jump('detail')">去common-detail</button>
     <button @click="jump('login')">去common-login</button>
     <button @click="jump('register')">去common-register</button>
+    <button @click="jump('personal')">去personal</button>
   </view>
 </template>
 
