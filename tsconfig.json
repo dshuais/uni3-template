@@ -15,7 +15,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/typings/**/*.d.ts",
-    "src/typings/**/*.ts"
+    "typings/**/*.d.ts",
+    "typings/**/*.ts"
   ]
 }

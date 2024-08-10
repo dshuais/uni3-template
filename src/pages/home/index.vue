@@ -1,8 +1,8 @@
 <!--
  * @Author: dushuais
  * @Date: 2024-08-09 21:14:55
- * @LastEditors: dushuais 1137896420@qq.com
- * @LastEditTime: 2024-08-09 22:18:51
+ * @LastEditors: dushuai
+ * @LastEditTime: 2024-08-10 21:17:52
  * @Description: home
 -->
 <script setup lang="ts">
@@ -38,6 +38,8 @@ function jump(type: keyof typeof urls) {
 
 <template>
   <view class="content">
+  <view class="text-4xl text-pink-500">我是tailwindcss</view>
+  <view class=" text-primary">我是扩展</view>
     <view class="text-area">
       <text class="title">{{ title }} token: {{ token }}</text>
     </view>
