@@ -9,7 +9,7 @@
 <route type="home" lang="json5">
 {
   style: {
-    navigationBarTitleText: 'uni-helper'
+    navigationBarTitleText: '首页'
   }
 }
 </route>

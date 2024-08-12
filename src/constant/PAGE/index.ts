@@ -1,6 +1,8 @@
-import { PAGE_COMMON, PAGE_USER } from './modules';
+import { PAGE_COMMON } from './modules/common';
+import { PAGE_USER } from './modules/user';
 
-export * from './modules';
+export * from './modules/common';
+export * from './modules/user';
 
 /** tabbar页面 */
 export const PAGE_TABBAR = {
