@@ -5,6 +5,15 @@
  * @LastEditTime: 2024-08-10 21:17:52
  * @Description: home
 -->
+<!-- 使用 type="home" 属性设置首页  lang: 'json' | 'json5' | 'yaml' -->
+<route type="home" lang="json5">
+{
+  style: {
+    navigationBarTitleText: 'uni-helper'
+  }
+}
+</route>
+
 <script setup lang="ts">
 import { useAppStore } from '@/store';
 import { PAGE, PAGE_COMMON, PAGE_MAIN, PAGE_USER } from '@/constant/PAGE';

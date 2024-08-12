@@ -1,81 +1,72 @@
 {
-	"pages": [
-		{
-			"path": "pages/home/index",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
-		{
-			"path": "pages/personal/index",
-			"style": {
-				"navigationBarTitleText": "个人中心"
-			}
-		}
-	],
-	"subPackages": [
-		{
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "type": "home",
+      "style": {
+        "navigationBarTitleText": "uni-helper"
+      }
+    },
+    {
+      "path": "pages/personal/index",
+      "type": "page"
+    }
+  ],
+  "subPackages": [
+    {
       "root": "pagesCommon",
-			"name": "公共module",
       "pages": [
         {
-          "path": "webview/index",
-          "style": {
-            "navigationBarTitleText": "webview"
-          }
-        },
-				{
           "path": "detail/index",
-          "style": {
-            "navigationBarTitleText": "详情页"
-          }
+          "type": "page"
+        },
+        {
+          "path": "webview/index",
+          "type": "page"
         }
       ]
     },
-		
-		{
+    {
       "root": "pagesUser",
-			"name": "用户module",
       "pages": [
         {
           "path": "login/index",
-          "style": {
-            "navigationBarTitleText": "登录"
-          }
+          "type": "page"
         },
-				{
+        {
           "path": "register/index",
-          "style": {
-            "navigationBarTitleText": "注册"
-          }
+          "type": "page"
         }
       ]
     }
-	],
-	"preloadRule": {
+  ],
+  "preloadRule": {
     "pages/home/index": {
       "network": "all",
-      "packages": ["pagesCommon"]
+      "packages": [
+        "pagesCommon"
+      ]
     },
-
-		"pages/personal/index": {
+    "pages/personal/index": {
       "network": "all",
-      "packages": ["用户module"]
+      "packages": [
+        "pagesUser"
+      ]
     }
   },
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	"tabBar": {
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-helper-pages",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
     "color": "#7A7E83",
     "selectedColor": "#3cc51f",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
-			{
+      {
         "pagePath": "pages/home/index",
         "text": "首页"
       },
@@ -84,5 +75,11 @@
         "text": "个人中心"
       }
     ]
-  }
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {}
+  },
+  "requiredBackgroundModes": [],
+  "lazyCodeLoading": "requiredComponents"
 }
