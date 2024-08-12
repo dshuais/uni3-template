@@ -31,6 +31,10 @@ const urls = {
   personal: PAGE_MAIN.PERSONAL
 };
 
+onLoad(() => {
+  console.log('home onLoad:>> ', import.meta.env);
+});
+
 function jump(type: keyof typeof urls) {
   if(type === 'personal') {
     uni.switchTab({
