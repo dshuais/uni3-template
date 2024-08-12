@@ -1,5 +1,41 @@
+<!--
+ * @Author: dushuai
+ * @Date: 2024-08-09 21:14:55
+ * @LastEditors: dushuai
+ * @LastEditTime: 2024-08-12 21:44:12
+ * @description: 个人中心
+-->
+<route lang="json5">
+{
+  style: {
+    navigationBarTitleText: '个人中心',
+    navigationStyle: 'custom'
+  }
+}
+</route>
+
 <script setup lang="ts">
+import { GetTest, GetTest2, GetTest3, GetTest4 } from '@/api/api';
+
 const title = ref('Hello');
+
+function handleTest(ind: number) {
+  const params = { user: 'dushuai' };
+  switch (ind) {
+    case 0:
+      GetTest(params).then(res => console.log('GetTest:>> ', res));
+      break;
+    case 1:
+      GetTest2(params).then((res) => console.log('GetTest:>> ', res));
+      break;
+    case 2:
+      GetTest3(params).then((res) => console.log('GetTest:>> ', res));
+      break;
+    case 3:
+      GetTest4().then((res) => console.log('GetTest:>> ', res));
+      break;
+  }
+}
 
 </script>
 
@@ -9,6 +45,8 @@ const title = ref('Hello');
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
+
+    <button @click="handleTest(0)">http</button>
   </view>
 </template>
 

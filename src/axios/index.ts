@@ -1,11 +1,15 @@
-import { un as reqest } from '@uni-helper/uni-network';
+import { un as reqest, UnResponse } from '@uni-helper/uni-network';
 import { useAppStore } from '@/store';
+import ErrorCodeHandle from './requestCode';
 
 type R<T> = Res.Response<T>;
 
 /** 不需要处理异常白名单 */
 const whiteList: string[] = [''];
 
+/**
+ * 创建axios实例
+ */
 const service = reqest.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL,
   timeout: 20000
@@ -40,7 +44,7 @@ service.interceptors.response.use(
     if(whiteList.some(e => e.match(url))) {
       console.log('not processing white list url:>> ', url);
     } else {
-      // ErrorCodeHandle(response);
+      ErrorCodeHandle(response as UnResponse<Res.Response>);
     }
 
     if((response.data as Res.Response).code === 200) {
@@ -163,4 +167,3 @@ export function del<T>(url: string, params?: object) {
       });
   });
 }
-

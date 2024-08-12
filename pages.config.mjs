@@ -1,3 +1,10 @@
+/*
+ * @Author: dushuai
+ * @Date: 2024-08-12 20:46:02
+ * @LastEditors: dushuai
+ * @LastEditTime: 2024-08-12 21:16:03
+ * @description: defineUniPages
+ */
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages';
 
 export default defineUniPages({

@@ -9,7 +9,11 @@
     },
     {
       "path": "pages/personal/index",
-      "type": "page"
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "个人中心",
+        "navigationStyle": "custom"
+      }
     }
   ],
   "subPackages": [
