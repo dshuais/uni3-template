@@ -52,6 +52,8 @@ function handleTest(ind: number) {
     <button @click="handleTest(1)">http test2</button>
     <button @click="handleTest(2)">http test3</button>
     <button @click="handleTest(3)">http test4</button>
+
+    <TestTestPop />
   </view>
 </template>
 

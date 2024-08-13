@@ -9,7 +9,7 @@ import { defineConfig } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
 import uniPages from '@uni-helper/vite-plugin-uni-pages';
 import AutoImport from 'unplugin-auto-import/vite';
-import UniHelperComponents from '@uni-helper/vite-plugin-uni-components';
+import AutoComponents from '@uni-helper/vite-plugin-uni-components';
 import { UnifiedViteWeappTailwindcssPlugin } from 'weapp-tailwindcss/vite';
 import postcssPlugins from './postcss.config';
 
@@ -19,6 +19,11 @@ export default defineConfig({
     uniPages({
       dts: 'typings/uni-pages.d.ts',
       subPackages: ['src/pagesCommon', 'src/pagesUser'] // 分包路径
+    }),
+
+    AutoComponents({
+      dts: 'typings/uni-components.d.ts',
+      directoryAsNamespace: true
     }),
 
     uni(),
@@ -37,11 +42,6 @@ export default defineConfig({
     AutoImport({
       imports: ['vue', 'uni-app', 'pinia'],
       dts: 'typings/auto-imports.d.ts'
-    }),
-
-    UniHelperComponents({
-      dts: 'typings/uni-components.d.ts',
-      directoryAsNamespace: true
     })
   ],
 

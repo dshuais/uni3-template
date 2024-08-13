@@ -15,7 +15,9 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "typings/*.d.ts",
     "typings/**/*.d.ts",
-    "typings/**/*.ts"
+    "typings/**/*.ts",
+    "typings/uni-components.d.ts"
   ]
 }
