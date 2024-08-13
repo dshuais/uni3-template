@@ -39,5 +39,21 @@
 			"}"
 		],
 		"description": "vue3 template: dushuai"
+	},
+	"Print to <route... />: dushuai": {
+		"scope": "javascript,typescript,vue",
+		"prefix": "<route",
+		"body": [
+			"<route lang='json5'>",
+			"{",
+			"  style: {",
+			"    navigationBarTitleText: '$1',",
+			"    navigationStyle: 'custom',",
+			"    enablePullDownRefresh: 'false'",
+			"  }",
+			"}",
+			"</route>"
+		],
+		"description": "vue3 template: dushuai"
 	}
 }

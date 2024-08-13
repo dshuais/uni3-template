@@ -34,6 +34,15 @@
       "root": "pagesUser",
       "pages": [
         {
+          "path": "info/index",
+          "type": "page",
+          "style": {
+            "navigationBarTitleText": "个人详情",
+            "navigationStyle": "custom",
+            "enablePullDownRefresh": "false"
+          }
+        },
+        {
           "path": "login/index",
           "type": "page"
         },

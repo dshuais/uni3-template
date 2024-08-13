@@ -8,6 +8,7 @@ interface NavigateToOptions {
        "/pages/personal/index" |
        "/pagesCommon/detail/index" |
        "/pagesCommon/webview/index" |
+       "/pagesUser/info/index" |
        "/pagesUser/login/index" |
        "/pagesUser/register/index";
 }
