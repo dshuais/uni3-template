@@ -9,7 +9,8 @@ import { defineConfig } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
 import uniPages from '@uni-helper/vite-plugin-uni-pages';
 import AutoImport from 'unplugin-auto-import/vite';
-import AutoComponents from '@uni-helper/vite-plugin-uni-components';
+// import UniAutoComponents from '@uni-helper/vite-plugin-uni-components';
+import AutoComponents from 'unplugin-vue-components/vite';
 import { UnifiedViteWeappTailwindcssPlugin } from 'weapp-tailwindcss/vite';
 import postcssPlugins from './postcss.config';
 
@@ -21,8 +22,17 @@ export default defineConfig({
       dts: 'typings/auto-imports.d.ts'
     }),
 
+    /**
+     * 因为vite-plugin-uni-components插件跟vue, @vue/runtime-core 跟 vue 的冲突 所以ComponentInstance方案找不到GlobalComponents
+     * 所以暂时放弃@uni-helper/vite-plugin-uni-components方案
+    */
+    // UniAutoComponents({
+    //   dts: 'typings/uni-components.d.ts',
+    //   directoryAsNamespace: true
+    // }),
+
     AutoComponents({
-      dts: 'typings/uni-components.d.ts',
+      dts: 'typings/auto-components.d.ts',
       directoryAsNamespace: true
     }),
 

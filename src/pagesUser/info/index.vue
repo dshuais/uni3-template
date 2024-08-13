@@ -3,7 +3,7 @@
   style: {
     navigationBarTitleText: '个人详情',
     navigationStyle: 'custom',
-    enablePullDownRefresh: 'false'
+    enablePullDownRefresh: false
   }
 }
 </route>

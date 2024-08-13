@@ -49,7 +49,7 @@
 			"  style: {",
 			"    navigationBarTitleText: '$1',",
 			"    navigationStyle: 'custom',",
-			"    enablePullDownRefresh: 'false'",
+			"    enablePullDownRefresh: false",
 			"  }",
 			"}",
 			"</route>"

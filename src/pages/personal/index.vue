@@ -15,13 +15,12 @@
 </route>
 
 <script setup lang="ts">
-import Popup from '@/components/Popup/index.vue';
+// import Popup from '@/components/Popup/index.vue';
 // import BaseTest2 from '@/components/Base/Test/index.vue';
 import { GetTest, GetTest2, GetTest3, GetTest4 } from '@/api/api';
 
 const title = ref('Hello');
 
-// 因为auto-components插件跟pinia, @vue/runtime-core 跟 vue 的冲突 所以ComponentInstance方案找不到GlobalComponents
 const popupRef = ref<ComponentInstance['Popup']>();
 
 function handleTest(ind: number) {
@@ -46,7 +45,7 @@ function handleTest(ind: number) {
 
 onMounted(() => {
   console.log('popupRef:>> ', popupRef.value);
-  popupRef.value?.handle2();
+  popupRef.value?.handleLog2();
 });
 
 </script>
