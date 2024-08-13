@@ -15,9 +15,14 @@
 </route>
 
 <script setup lang="ts">
+import Popup from '@/components/Popup/index.vue';
+// import BaseTest2 from '@/components/Base/Test/index.vue';
 import { GetTest, GetTest2, GetTest3, GetTest4 } from '@/api/api';
 
 const title = ref('Hello');
+
+// 因为auto-components插件跟pinia, @vue/runtime-core 跟 vue 的冲突 所以ComponentInstance方案找不到GlobalComponents
+const popupRef = ref<ComponentInstance['Popup']>();
 
 function handleTest(ind: number) {
   const params = { user: 'dushuai' };
@@ -39,11 +44,16 @@ function handleTest(ind: number) {
   }
 }
 
+onMounted(() => {
+  console.log('popupRef:>> ', popupRef.value);
+  popupRef.value?.handle2();
+});
+
 </script>
 
 <template>
   <view class="content">
-    <image class="logo" src="/static/image/logo.png" />
+    <!-- <image class="logo" src="/static/image/logo.png" /> -->
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
@@ -53,7 +63,12 @@ function handleTest(ind: number) {
     <button @click="handleTest(2)">http test3</button>
     <button @click="handleTest(3)">http test4</button>
 
-    <TestTestPop />
+    <BaseTest msg="我是BaseTest" />
+    <Popup ref="popupRef" />
+    <BaseTest2 :msg="'personal传递'" />
+    <view>分界线</view>
+    自动导入
+    <BaseTest2 msg="给自动导入组件的传递" />
   </view>
 </template>
 

@@ -52,9 +52,10 @@ service.interceptors.response.use(
     }
 
     // 正常请求下 errno 为 undefined
-    if(response.errno) {
-      return Promise.reject(response.errMsg);
-    } else if((response.data as Res.Response).code === 200) {
+    // if(response.errno) {
+    //   return Promise.reject(response.errMsg);
+    // } else
+    if(response.data && (response.data as Res.Response).code === 200) {
       return response;
     } else {
       console.error('response code error:>> ', response);

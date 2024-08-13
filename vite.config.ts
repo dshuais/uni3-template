@@ -16,14 +16,19 @@ import postcssPlugins from './postcss.config';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    uniPages({
-      dts: 'typings/uni-pages.d.ts',
-      subPackages: ['src/pagesCommon', 'src/pagesUser'] // 分包路径
+    AutoImport({
+      imports: ['vue', 'uni-app', 'pinia'],
+      dts: 'typings/auto-imports.d.ts'
     }),
 
     AutoComponents({
       dts: 'typings/uni-components.d.ts',
       directoryAsNamespace: true
+    }),
+
+    uniPages({
+      dts: 'typings/uni-pages.d.ts',
+      subPackages: ['src/pagesCommon', 'src/pagesUser'] // 分包路径
     }),
 
     uni(),
@@ -37,12 +42,8 @@ export default defineConfig({
       // propList: ['*'],
       // 转化的单位,可以变成 px / rpx
       // transformUnit: 'rpx'
-    }),
-
-    AutoImport({
-      imports: ['vue', 'uni-app', 'pinia'],
-      dts: 'typings/auto-imports.d.ts'
     })
+
   ],
 
   // 内联 postcss 注册 tailwindcss

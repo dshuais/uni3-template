@@ -9,6 +9,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    TestTestPop: typeof import('./../src/components/Test/TestPop/index.vue')['default']
+    BaseTest: typeof import('./../src/components/Base/Test/index.vue')['default']
+    BaseTest2: typeof import('./../src/components/Base/Test2/index.vue')['default']
+    Popup: typeof import('./../src/components/Popup/index.vue')['default']
   }
 }

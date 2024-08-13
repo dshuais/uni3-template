@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ['vue', '@typescript-eslint', 'prettier'],
   root: true,
+  // ignores: ['dist/', 'node_modules/'],
   rules: {
     /**
      * Vue规则

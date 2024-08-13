@@ -7,7 +7,9 @@
       "@/*": ["./src/*"]
     },
     "lib": ["esnext", "dom"],
-    "types": ["@dcloudio/types"],
+    "types": [
+      "@dcloudio/types"
+    ],
     "ignoreDeprecations": "5.0"
   },
   "include": [

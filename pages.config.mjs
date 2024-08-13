@@ -56,7 +56,8 @@ export default defineUniPages({
   easycom: {
     autoscan: true,
     custom: {
-      // '^wd-(.*)': 'wot-design-uni/components/wd-$1/wd-$1.vue'
+      // "^uni-(.*)": "@/components/uni-$1.vue", // 匹配 components 目录内的 vue 文件
+      // 'Base(.*)': '@/components/Base/$1/index.vue'
     }
   },
   requiredBackgroundModes: [],
