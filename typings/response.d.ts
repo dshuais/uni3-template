@@ -17,4 +17,10 @@ declare namespace Res {
     msg: string
   }
 
+  type testData = {
+    name: string
+    age: number
+    sex: string
+  }
+
 }

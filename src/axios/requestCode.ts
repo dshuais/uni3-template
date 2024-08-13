@@ -5,7 +5,7 @@
  * @LastEditTime: 2024-08-12 20:57:53
  * @description: 统一处理报错
  */
-import { UnResponse } from '@uni-helper/uni-network';
+import { type UnResponse } from '@uni-helper/uni-network';
 import { useAppStore } from '@/store';
 
 /** 不需要token的接口列表 */

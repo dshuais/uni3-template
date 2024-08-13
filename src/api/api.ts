@@ -10,7 +10,7 @@ import { get, post } from '@/axios';
 /** 测试接口 */
 export const GetTest = (params: object) => get('test', params);
 
-export const GetTest2 = (params: object) => post('test', params);
+export const GetTest2 = (params: object) => post<Res.testData>('test', params);
 
 export const GetTest3 = (params: object) => post('testJSON', params);
 

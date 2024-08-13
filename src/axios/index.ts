@@ -1,4 +1,4 @@
-import { un as reqest, UnResponse } from '@uni-helper/uni-network';
+import { un as reqest, type UnResponse } from '@uni-helper/uni-network';
 import { useAppStore } from '@/store';
 import ErrorCodeHandle from './requestCode';
 
@@ -11,7 +11,7 @@ const whiteList: string[] = [''];
  * 创建axios实例
  */
 const service = reqest.create({
-  baseURL: import.meta.env.VITE_APP_BASE_URL,
+  baseUrl: import.meta.env.VITE_APP_BASE_URL,
   timeout: 20000
 });
 
@@ -21,8 +21,10 @@ service.interceptors.request.use(
     // 在发送请求之前做些什么
 
     const { token } = storeToRefs(useAppStore());
+
     if(token.value) {
-      config.headers!['token'] = `${token.value}`;
+      if(!config.headers) config.headers = {};
+      config.headers['token'] = `${token.value}`;
     }
 
     return config;
@@ -42,12 +44,17 @@ service.interceptors.response.use(
     const url = response.config?.url as string;
 
     if(whiteList.some(e => e.match(url))) {
-      console.log('not processing white list url:>> ', url);
+      if(url) console.log('not processing white list url:>> ', url);
+      else console.log('request error, no url:>> ', response);
+
     } else {
       ErrorCodeHandle(response as UnResponse<Res.Response>);
     }
 
-    if((response.data as Res.Response).code === 200) {
+    // 正常请求下 errno 为 undefined
+    if(response.errno) {
+      return Promise.reject(response.errMsg);
+    } else if((response.data as Res.Response).code === 200) {
       return response;
     } else {
       console.error('response code error:>> ', response);
@@ -87,7 +94,7 @@ export function post<T>(url: string, params?: object) {
   });
 }
 
-/** POST表单格式 */
+/** POST表单格式 可根据需要封装 目前屏蔽因为不想安装qs库 */
 // export function postForm<T>(url: string, params?: object): Promise<Res.Response<T>> {
 //   return new Promise<Res.Response<T>>((resolve, reject) => {
 //     type Response = Res.Response<T>;

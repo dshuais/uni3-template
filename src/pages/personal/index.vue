@@ -26,7 +26,9 @@ function handleTest(ind: number) {
       GetTest(params).then(res => console.log('GetTest:>> ', res));
       break;
     case 1:
-      GetTest2(params).then((res) => console.log('GetTest:>> ', res));
+      GetTest2(params).then((res) => {
+        console.log('GetTest:>> ', res, res.data.name);
+      });
       break;
     case 2:
       GetTest3(params).then((res) => console.log('GetTest:>> ', res));
@@ -46,7 +48,10 @@ function handleTest(ind: number) {
       <text class="title">{{ title }}</text>
     </view>
 
-    <button @click="handleTest(0)">http</button>
+    <button @click="handleTest(0)">http test1</button>
+    <button @click="handleTest(1)">http test2</button>
+    <button @click="handleTest(2)">http test3</button>
+    <button @click="handleTest(3)">http test4</button>
   </view>
 </template>
 
