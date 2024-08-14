@@ -17,8 +17,8 @@ export const regs = {
   name: /^[\u4e00-\u9fa5\ a-zA-Z]+$/
 };
 
-function validation(reg) {
-  return value => {
+function validation(reg: keyof typeof regs) {
+  return (value: unknown) => {
     if(isString(value)) {
       const regExp = new RegExp(regs[reg]);
       return regExp.test(value);
@@ -27,37 +27,37 @@ function validation(reg) {
   };
 }
 
-export const isString = value => {
+export const isString = (value: unknown) => {
   return typeof value === 'string';
 };
 
 // 金额校验
-export const isCurrency = value => {
+export const isCurrency = (value: unknown) => {
   return validation('currency')(value);
 };
 
 //URL验证
-export const isUrl = value => {
+export const isUrl = (value: unknown) => {
   return validation('url')(value);
 };
 
 //邮箱验证
-export const isEmail = value => {
+export const isEmail = (value: unknown) => {
   return validation('email')(value);
 };
 
 //手机号码验证
-export const isMobile = value => {
+export const isMobile = (value: unknown) => {
   return validation('mobile')(value);
 };
 
 //正整数验证
-export const isNumber = value => {
+export const isNumber = (value: unknown) => {
   return validation('number')(value);
 };
 
 //验证必填（可验证数组）
-export const requiredValid = value => {
+export const requiredValid = (value: string | any[]) => {
   if(typeof value === 'undefined') {
     return false;
   } else if(typeof value === 'string') {
@@ -76,7 +76,7 @@ export const requiredValid = value => {
 };
 
 //验证数据是否不为空（空值时返回false，null、undefined、空字符串、空数组、空对象都被设定为空）
-export const isNotEmpty = value => {
+export const isNotEmpty = (value: string | any[] | null) => {
   switch (typeof value) {
     case 'undefined': {
       return false;
@@ -103,8 +103,8 @@ export const isNotEmpty = value => {
 };
 
 //验证最大长度
-export const maxLengthValid = (value, maxLength) => {
-  let length;
+export const maxLengthValid = (value: any, maxLength: number) => {
+  let length = 0;
   if(typeof value === 'number') {
     length = String(value).length;
   } else if(value instanceof Array || typeof value === 'string') {
@@ -114,8 +114,8 @@ export const maxLengthValid = (value, maxLength) => {
 };
 
 //验证最小长度
-export const minLengthValid = (value, minLength) => {
-  let length;
+export const minLengthValid = (value: any, minLength: number) => {
+  let length = 0;
   if(typeof value === 'number') {
     length = String(value).length;
   } else if(value instanceof Array || typeof value === 'string') {
@@ -125,7 +125,7 @@ export const minLengthValid = (value, minLength) => {
 };
 
 //验证指定正则
-export const patternValid = (value, pattern) => {
+export const patternValid = (value: string, pattern: string | RegExp) => {
   if(!pattern) return false;
 
   if(typeof pattern === 'string') {
@@ -137,7 +137,7 @@ export const patternValid = (value, pattern) => {
   }
 };
 
-export const required = (values, errors, fieldNames) => {
+export const required = (values: { [x: string]: any; }, errors: { [x: string]: string; }, fieldNames: string | string[]) => {
   let fieldNamesArray: string[] = [];
   if(typeof fieldNames === 'string') {
     fieldNamesArray = [fieldNames];
@@ -151,6 +151,6 @@ export const required = (values, errors, fieldNames) => {
   }
 };
 
-export const trim = str => {
+export const trim = (str: string | null) => {
   return str == null ? '' : String.prototype.trim.call(str);
 };
